@@ -1,6 +1,0 @@
-[
-    {action: "buy Flowers", done: false},
-    {action: "Call Joe", done: true},
-    {action: "Collect Tickets", done: false},
-    {action: "Collect", done: false}
-]

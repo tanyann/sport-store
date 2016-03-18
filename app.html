@@ -27,7 +27,7 @@
         <a href="#" class="navbar-brand">Sport Store</a>
     </div>
 
-    <div class="panel panel-default row" ng-controller="productListCtrl">
+    <div class="panel panel-default" ng-controller="productListCtrl">
         <div class="col-xs-3">
 
             <a ng-click="selectCategory()"
@@ -38,7 +38,7 @@
             </a>
         </div>
         <div class="col-xs-8">
-            <div class="well" ng-repeat="item in data.products | filter:categoryFilterFn">
+            <div class="well" ng-repeat="item in data.products | filter:categoryFilterFn | range:selectedPage:pageSize">
                 <h3>
                     <strong>{{item.name}}</strong>
                     <span class="pull-right label label-primary">
@@ -49,7 +49,15 @@
                     {{item.description}}
                 </span>
             </div>
+            <div class="pull-right btn-group">
+                <a ng-repeat="page in data.products | filter: categoryFilterFn | pageCount:pageSize"
+                        ng-click="selectPage($index + 1)" class="btn btn-default"
+                        ng-class = "getPageClass($index + 1)">
+                    {{$index + 1}}
+                        </a>
+            </div>
         </div>
+        <div class="clearfix"></div>
     </div>
 
 </body>
