@@ -9,14 +9,32 @@
 
 
     <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
     <script>
-        angular.module("sportStore", ["customFilter"]);
+        angular.module("sportStore", ["customFilter","cart", "ngRoute"])
+                .config(function($routeProvider){
+
+                   $routeProvider.when("/checkout",{
+                       templateUrl: "views/checkoutSummary.html"
+                   });
+
+                   $routeProvider.when("/products",{
+                       templateUrl: "views/productList.html"
+                   });
+
+                   $routeProvider.otherwise({
+                       templateUrl: "views/productList.html"
+                   });
+
+                });
     </script>
 
 
     <script src="controllers/sportStore.js"></script>
     <script src="filters/customFilter.js"></script>
     <script src="controllers/productListCtrl.js"></script>
+    <script src="components/cart.js"></script>
+
 
 
 </head>
@@ -25,40 +43,17 @@
 
     <div class="navbar navbar-inverse">
         <a href="#" class="navbar-brand">Sport Store</a>
+        <cart-summary/>
     </div>
 
-    <div class="panel panel-default" ng-controller="productListCtrl">
-        <div class="col-xs-3">
 
-            <a ng-click="selectCategory()"
-               class="btn btn-block btn-default btn-lg">Home</a>
-            <a ng-repeat="item in data.products | orderBy:'category' | unique:'category'"
-               ng-click="selectCategory(item)" class=" btn btn-block btn-default btn-lg" ng-class="getCategoryClass(item)">
-                {{item}}
-            </a>
-        </div>
-        <div class="col-xs-8">
-            <div class="well" ng-repeat="item in data.products | filter:categoryFilterFn | range:selectedPage:pageSize">
-                <h3>
-                    <strong>{{item.name}}</strong>
-                    <span class="pull-right label label-primary">
-                        {{item.price | currency}}
-                    </span>
-                </h3>
-                <span class="lead">
-                    {{item.description}}
-                </span>
-            </div>
-            <div class="pull-right btn-group">
-                <a ng-repeat="page in data.products | filter: categoryFilterFn | pageCount:pageSize"
-                        ng-click="selectPage($index + 1)" class="btn btn-default"
-                        ng-class = "getPageClass($index + 1)">
-                    {{$index + 1}}
-                        </a>
-            </div>
-        </div>
-        <div class="clearfix"></div>
+    <div class="alert alert-danger" ng-show="data.error">
+        Error({{data.error.status}}). The product datat was not loaded.
+        <a href="app.html" class="alert-link">Click here to try again</a>
     </div>
+
+    <ng-view/>
+
 
 </body>
 </html>
