@@ -12,5 +12,4 @@ app.constant("dataUrl", "http://tanyann.github.io/sport-store/products.json")
             .error(function(error){
                 $scope.data.error = error;
             })
-
 });

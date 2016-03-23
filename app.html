@@ -8,28 +8,9 @@
     <link rel="stylesheet" href="style.css"/>
 
 
-    <script src="angular.js"></script>
-    <script src="angular-route.js"></script>
-    <script>
-        angular.module("sportStore", ["customFilter","cart", "ngRoute"])
-                .config(function($routeProvider){
-
-                   $routeProvider.when("/checkout",{
-                       templateUrl: "views/checkoutSummary.html"
-                   });
-
-                   $routeProvider.when("/products",{
-                       templateUrl: "views/productList.html"
-                   });
-
-                   $routeProvider.otherwise({
-                       templateUrl: "views/productList.html"
-                   });
-
-                });
-    </script>
-
-
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="app.js"></script>
     <script src="controllers/sportStore.js"></script>
     <script src="filters/customFilter.js"></script>
     <script src="controllers/productListCtrl.js"></script>
@@ -42,7 +23,7 @@
 <body ng-controller="sportStoreCtrl">
 
     <div class="navbar navbar-inverse">
-        <a href="#" class="navbar-brand">Sport Store</a>
+        <a href="#" class="navbar-brand">Sport Store 1</a>
         <cart-summary/>
     </div>
 
