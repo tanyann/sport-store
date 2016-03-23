@@ -1,6 +1,11 @@
 angular.module("sportStore", ["customFilter","cart", "ngRoute"])
     .config(function($routeProvider){
 
+
+        $routeProvider.when("/placeorder",{
+            templateUrl: "views/placeorder.html"
+        });
+
         $routeProvider.when("/checkout",{
             templateUrl: "views/checkoutSummary.html"
         });

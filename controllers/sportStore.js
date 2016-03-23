@@ -1,6 +1,6 @@
 var app = angular.module("sportStore");
 
-app.constant("dataUrl", "http://tanyann.github.io/sport-store/products.json")
+app.constant("dataUrl", "http://localhost/sport-store/products")
     .controller("sportStoreCtrl", function($scope, $http, dataUrl){
 
         $scope.data ={};
@@ -12,4 +12,5 @@ app.constant("dataUrl", "http://tanyann.github.io/sport-store/products.json")
             .error(function(error){
                 $scope.data.error = error;
             })
+
 });
