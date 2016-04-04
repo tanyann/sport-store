@@ -1,3 +1,70 @@
-<div class="col-xs-12">
+<div class="col-xs-6">
+<h2>Check out now</h2>
+    <p>Please enter your details information</p>
 
+    <form name="shippingForm" novalidate>
+        <div class="well">
+            <h3>Ship to</h3>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" ng-model="data.shipping.name" required name="name"/>
+                <span class="error" ng-show="shippingForm.name.$error.required">
+                    Please enter a name
+                </span>
+            </div>
+
+            <h3>Address</h3>
+            <div class="form-group">
+                <label>Street Address</label>
+                <input type="text" class="form-control" ng-model="data.shipping.street" required name="street"/>
+                <span class="error" ng-show="shippingForm.street.$error.required">
+                    Please enter a street address
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control" ng-model="data.shipping.city" required name="city"/>
+                <span class="error" ng-show="shippingForm.city.$error.required">
+                    Please enter a city
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label>State</label>
+                <input type="text" class="form-control" ng-model="data.shipping.state" required name="state"/>
+                <span class="error" ng-show="shippingForm.state.$error.required">
+                    Please enter a state
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label>Zip</label>
+                <input type="text" class="form-control" ng-model="data.shipping.zip" required name="zip"/>
+                <span class="error" ng-show="shippingForm.zip.$error.required">
+                    Please enter a zip code
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label>Country</label>
+                <input type="text" class="form-control" ng-model="data.shipping.country" required name="country"/>
+                <span class="error" ng-show="shippingForm.country.$error.required">
+                    Please enter a country
+                </span>
+            </div>
+
+            <h3>Options</h3>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="giftwrap" ng-model="data.shipping.giftwrap"/>
+                    Gift wrap these items
+                </label>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary" ng-disabled="shippingForm.$invalid">Complete order</button>
+            </div>
+        </div>
+    </form>
 </div>
